@@ -1,4 +1,6 @@
 using Microsoft.EntityFrameworkCore;
+using BestRestaurant.Models;
+using BestRestaurant;
 
 namespace BestRestaurant.Models
 {
@@ -7,9 +9,9 @@ namespace BestRestaurant.Models
     public DBSet<Cuisine> Cuisines { get; set; }
     public DBSet<Restaurant> Restaurants { get; set; }
 
-    public BestRestaurantContext(DBContextOption options) : base(options) { }
+    public BestRestaurantContext(DBContextOptions options) : base(options) { }
 
-    protected override void OnConfiguring(DBContextOptionsBuilder optionsBuilder)
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
       optionsBuilder.UseLazyLoadingProxies();
     }

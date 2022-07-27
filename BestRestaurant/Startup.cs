@@ -27,15 +27,13 @@ namespace BestRestaurant
       services.AddMvc();
 
       services.AddEntityFrameworkMySql()
-       .AddDbContext<BestRestaurantContext>(options => options
-       .UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
+       .AddDbContext<BestRestaurantContext>(options => options.UseMySql(Configuration["ConnectionStrings:DefaultConnection"], ServerVersion.AutoDetect(Configuration["ConnectionStrings:DefaultConnection"])));
     }
     
     public void Configure(IApplicationBuilder app)
     {
 
       app.UseDeveloperExceptionPage();       
-      app.UseStaticFiles();
       app.UseRouting();
 
       app.UseEndpoints(routes =>
@@ -43,6 +41,7 @@ namespace BestRestaurant
         routes.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
       });
 
+      app.UseStaticFiles();
 
       app.Run(async (context) =>
       {
