@@ -6,10 +6,10 @@ namespace BestRestaurant.Models
 {
   public class BestRestaurantContext : DbContext
   {
-    public DBSet<Cuisine> Cuisines { get; set; }
-    public DBSet<Restaurant> Restaurants { get; set; }
+    public DbSet<Cuisine> Cuisines { get; set; }
+    public DbSet<Restaurant> Restaurants { get; set; }
 
-    public BestRestaurantContext(DBContextOptions options) : base(options) { }
+    public BestRestaurantContext(DbContextOptions options) : base(options) { }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
